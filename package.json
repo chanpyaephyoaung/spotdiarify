@@ -1,0 +1,22 @@
+{
+  "name": "spotdiarify",
+  "version": "1.0.0",
+  "description": "SpotDiarify",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass sass/main.scss css/styles.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chanpyaephyoaung/spotdiarify.git"
+  },
+  "author": "Chan Pyae Phyo Aung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chanpyaephyoaung/spotdiarify/issues"
+  },
+  "homepage": "https://github.com/chanpyaephyoaung/spotdiarify#readme",
+  "devDependencies": {
+    "sass": "^1.56.1"
+  }
+}
