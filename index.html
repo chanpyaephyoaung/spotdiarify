@@ -14,6 +14,9 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
 
+  <!-- FontAwesome Icon -->
+  <script defer src="https://kit.fontawesome.com/bb2142d1c3.js" crossorigin="anonymous"></script>
+
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
@@ -24,7 +27,192 @@
 </head>
 
 <body>
+  <div class="overlay"></div>
 
+  <main class="main">
+    <div class="info">
+      <header>
+        <div class="logo">
+          <a href="#" class="logo__text">SpotDiarify</a>
+        </div>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item active" data-tab="1"><a href="#" class="nav__link">Main</a></li>
+            <li class="nav__item" data-tab="2"><a href="#" class="nav__link">Edit</a></li>
+            <li class="nav__item" data-tab="3"><a href="#" class="nav__link">History</a></li>
+            <div class="tab-indicator"></div>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="content__container">
+        <div class="content content--1 active">
+          <div class="content--empty visible">
+            <p class="paragraph paragraph--muted">Such empty. Please spot a location on the map to start SpotDiarify!
+            </p>
+          </div>
+
+          <div class="content--initializer">
+            <form action="" class="form form--initializer">
+              <input type="text" class="content--initializer__input" placeholder="Target location name">
+              <button type="submit" class="btn btn--round icon__wrapper--lg">
+                <i class="fa-solid fa-plus icon"></i>
+              </button>
+            </form>
+          </div>
+
+          <div class="content--current">
+            <div class="activity-list__header__wrapper">
+              <div class="activity-list__header">
+                <i class="fa-solid fa-location-dot icon"></i>
+                <h2 class="heading--secondary">LOTTE HOTEL, YANGON</h2>
+              </div>
+              <p class="paragraph--sm">Today at 7:21pm</p>
+            </div>
+
+            <ul class="activity-list">
+              <li class="activity-list__item">
+                <i class="fa-solid fa-circle-check icon"></i>
+                <span class="paragraph">
+                  Pooping
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content content--2">
+          <div class="content--edit">
+            <div class="activity-list__header__wrapper">
+              <div class="activity-list__header">
+                <i class="fa-solid fa-location-dot icon"></i>
+                <input type="text" class="activity-list__header__input" value="LOTTE HOTEL, YANGON">
+                <button type="button" class="btn icon__wrapper--md">
+                  <i class="fa-solid fa-pen-to-square icon"></i>
+                </button>
+                <button type="button" class="btn icon__wrapper--md">
+                  <i class="fa-solid fa-xmark icon"></i>
+                </button>
+              </div>
+              <span class="paragraph--sm">Today at 7:21pm</span>
+            </div>
+
+            <ul class="activity-list" data-id="1">
+              <li class="activity-list__item">
+                <i class="fa-solid fa-circle-check icon"></i>
+                <input type="text" class="activity-list__item__input" value="Pooping">
+                <button type="button" class="btn icon__wrapper--sm" data-list-index="0">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button type="button" class="btn icon__wrapper--sm" data-list-index="0">
+                  <i class="fa-solid fa-xmark icon"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content content--3">
+          <div class="content--history">
+            <div class="history__tab__header" data-tab="1">
+              <a href="#" class="heading--secondary">Today</a>
+              <button type="button" class="btn icon__wrapper--md">
+                <i class="fa-solid fa-chevron-up icon"></i>
+              </button>
+            </div>
+
+            <div class="history__tab-content history__tab-content--1">
+              <div class="history__tab-content__item">
+                <div class="history__tab-content__item__header">
+                  <a href="#" class="heading--tertiary" data-id="1">Lotte Hotel</a>
+                  <button type="button" class="btn icon__wrapper--md" data-id="1">
+                    <i class="fa-solid fa-pen-to-square icon"></i>
+                  </button>
+                  <button type="button" class="btn icon__wrapper--md" data-id="1">
+                    <i class="fa-solid fa-location-arrow icon"></i>
+                  </button>
+                </div>
+                <p class="paragraph--sm">
+                  7:21pm - 10:00pm
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content--history-individual">
+            <div class="previous__container">
+              <button class="btn icon__wrapper--sm">
+                <i class="fa-solid fa-chevron-left icon"></i>
+              </button>
+              <span class="paragraph paragraph--md">Back</span>
+            </div>
+
+            <div class="activity-list__header__wrapper">
+              <div class="activity-list__header">
+                <i class="fa-solid fa-location-dot icon"></i>
+                <h2 class="heading--secondary">LOTTE HOTEL, YANGON</h2>
+              </div>
+              <span class="paragraph--sm">Today at 7:21pm - 10:00pm</span>
+            </div>
+
+            <ul class="activity-list">
+              <li class="activity-list__item">
+                <i class="fa-solid fa-circle-check icon"></i>
+                <span class="paragraph">
+                  Pooping
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Form For Current Location -->
+    <form class="form form--content--current__cta">
+      <div class="add-activity__container">
+        <input type="text" class="add-activity__input" placeholder="Add new activity...">
+        <button type="submit" class="btn btn--square btn--white">
+          <i class="fa-solid fa-plus icon--add"></i>
+        </button>
+      </div>
+
+      <button type="submit" class="btn btn--lg btn--red" data-modal="modal--discard--current">Discard</button>
+      <button class="btn btn--lg btn--green" data-modal="modal--checkout">Checkout</button>
+    </form>
+
+    <!-- CTA Form for Edit -->
+    <form class="form form--content--current__cta">
+      <div class="add-activity__container">
+        <input type="text" class="add-activity__input" placeholder="Add new activity...">
+        <button type="submit" class="btn btn--square btn--white" data-id="1">
+          <i class="fa-solid fa-plus icon--add"></i>
+        </button>
+      </div>
+
+      <button type="submit" class="btn btn--lg btn--red" data-modal="modal--discard--edit">Discard</button>
+      <button class="btn btn--lg btn--green" data-modal="modal--save">Save</button>
+    </form>
+
+    </div>
+
+    <div class="map__container">
+      <div class="map"></div>
+    </div>
+
+  </main>
+
+  <div class="modal">
+    <i class="fa-regular fa-circle-exclamation icon"></i>
+    <h2 class="heading--secondary">Discard Changes</h2>
+    <p class="paragraph">Are you sure that you wish to discard any changes that you have made? This action cannot be
+      undone.</p>
+    <div class="modal__cta">
+      <button type="submit" class="btn btn--sm">Cancel</button>
+      <button type="submit" class="btn btn--sm btn--sm--main">Discard</button>
+    </div>
+  </div>
 </body>
 
 </html>
