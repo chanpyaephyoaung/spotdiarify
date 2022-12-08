@@ -1,0 +1,59 @@
+.logo {
+  text-align: center;
+
+  &__text {
+    font-size: 1.8rem;
+    color: $color-primary;
+    font-weight: 00;
+  }
+}
+
+// Headings
+
+.heading {
+  &--secondary {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $color-primary;
+
+    &--black {
+      color: $color-black;
+    }
+  }
+
+  &--tertiary {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $color-primary;
+  }
+}
+
+// Paragraph Texts
+
+.paragraph {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: $color-primary;
+
+  &--black {
+    color: $color-black;
+  }
+
+  &--muted {
+    text-align: center;
+    opacity: 0.3;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  &--md {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $color-primary;
+  }
+
+  &--sm {
+    font-size: 0.9rem;
+    color: $color-primary;
+  }
+}

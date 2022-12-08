@@ -1,0 +1,70 @@
+.icon {
+  font-size: 1.6rem;
+
+  &--sm {
+    font-size: 1.4rem;
+  }
+
+  &--xsm {
+    font-size: 1.3rem;
+  }
+
+  &--lg {
+    font-size: 2.5rem;
+  }
+
+  &--xlg {
+    font-size: 3rem;
+  }
+
+  &__wrapper {
+    &--lg {
+      width: 4rem;
+      height: 4rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--md {
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--sm {
+      width: 1.5rem;
+      height: 1.5rem;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--round-edge {
+      border-radius: var(--border-radius-secondary);
+    }
+  }
+
+  &--primary-color {
+    color: $color-primary;
+  }
+  &--secondary-color {
+    color: $color-secondary;
+  }
+
+  &--red {
+    color: $color-red;
+  }
+
+  &--location {
+    font-size: 2.2rem;
+  }
+
+  &--add {
+    font-size: 2.4rem;
+  }
+}

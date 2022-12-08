@@ -15,8 +15,13 @@
     rel="stylesheet">
 
   <!-- FontAwesome Icon -->
-  <script defer src="https://kit.fontawesome.com/bb2142d1c3.js" crossorigin="anonymous"></script>
+  <script defer src="node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
+  <script defer src="node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
+  <script defer src="node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
 
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+  <script defer src="node_modules/leaflet/dist/leaflet.js"></script>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
@@ -27,141 +32,278 @@
 </head>
 
 <body>
-  <div class="overlay"></div>
+  <!-- <div class="overlay"></div> -->
 
   <main class="main">
     <div class="info">
       <header>
         <div class="logo">
-          <a href="#" class="logo__text">SpotDiarify</a>
+          <h1 href="#" class="logo__text">SpotDiarify</h1>
         </div>
+
+        <hr class="hr hr--lg">
+
         <nav class="nav">
           <ul class="nav__list">
             <li class="nav__item active" data-tab="1"><a href="#" class="nav__link">Main</a></li>
             <li class="nav__item" data-tab="2"><a href="#" class="nav__link">Edit</a></li>
             <li class="nav__item" data-tab="3"><a href="#" class="nav__link">History</a></li>
-            <div class="tab-indicator"></div>
+            <div class="nav__indicator"></div>
           </ul>
         </nav>
       </header>
 
       <div class="content__container">
-        <div class="content content--1 active">
-          <div class="content--empty visible">
+        <div class="content content--1">
+
+          <div class="content--sub content--empty">
             <p class="paragraph paragraph--muted">Such empty. Please spot a location on the map to start SpotDiarify!
             </p>
           </div>
 
-          <div class="content--initializer">
+          <div class="content--sub content--initializer">
             <form action="" class="form form--initializer">
-              <input type="text" class="content--initializer__input" placeholder="Target location name">
-              <button type="submit" class="btn btn--round icon__wrapper--lg">
-                <i class="fa-solid fa-plus icon"></i>
+              <input type="text" class="form--initializer__input input-focus__outline--none"
+                placeholder="Target location name">
+              <button type="submit" class="btn btn--round btn--white icon__wrapper--lg">
+                <i class="fa-solid fa-plus icon icon--add icon--secondary-color"></i>
               </button>
             </form>
           </div>
 
-          <div class="content--current">
+          <div class="content--sub content--current active">
             <div class="activity-list__header__wrapper">
               <div class="activity-list__header">
-                <i class="fa-solid fa-location-dot icon"></i>
-                <h2 class="heading--secondary">LOTTE HOTEL, YANGON</h2>
+                <i class="fa-solid fa-location-dot icon icon--location icon--primary-color"></i>
+                <h2 class="heading--secondary activity-list__header__title">LOTTE HOTEL, YANGON</h2>
               </div>
-              <p class="paragraph--sm">Today at 7:21pm</p>
+              <p class="paragraph--sm time">Today at 7:21pm</p>
             </div>
 
             <ul class="activity-list">
               <li class="activity-list__item">
-                <i class="fa-solid fa-circle-check icon"></i>
+                <i class="fa-solid fa-circle-check icon icon--primary-color"></i>
+                <span class="paragraph">
+                  Pooping
+                </span>
+              </li>
+              <li class="activity-list__item">
+                <i class="fa-solid fa-circle-check icon icon--primary-color"></i>
                 <span class="paragraph">
                   Pooping
                 </span>
               </li>
             </ul>
+
+            <form class="form form--content__cta form--content--current__cta">
+              <div class="add-activity__container add-activity__container-shadow">
+                <input type="text" class="add-activity__input input-focus__outline--none"
+                  placeholder="Add new activity...">
+                <button type="submit" class="btn btn--white btn--idle btn--add-activity"
+                  data-modal="modal--add-activity">
+                  <i class="fa-solid fa-plus icon--add icon--secondary-color"></i>
+                </button>
+              </div>
+
+              <div class="form--main--cta__buttons">
+                <button type="button" class="btn btn--lg btn--lg-fw btn--shadow btn--red"
+                  data-modal="modal--discard--current">Discard</button>
+                <button type="submit" class="btn btn--lg btn--lg-fw btn--shadow btn--green"
+                  data-modal="modal--checkout">Checkout</button>
+              </div>
+            </form>
           </div>
+
+
         </div>
 
         <div class="content content--2">
-          <div class="content--edit">
+          <div class="content--sub content--edit active">
+
             <div class="activity-list__header__wrapper">
-              <div class="activity-list__header">
-                <i class="fa-solid fa-location-dot icon"></i>
-                <input type="text" class="activity-list__header__input" value="LOTTE HOTEL, YANGON">
-                <button type="button" class="btn icon__wrapper--md">
-                  <i class="fa-solid fa-pen-to-square icon"></i>
+              <div class="activity-list__header activity-list__header--edit">
+                <i class="fa-solid fa-location-dot icon icon--location icon--primary-color"></i>
+                <input type="text"
+                  class="input-focus__outline--none heading--secondary activity-list__header__title activity-list__header__input input--bottom-border"
+                  value="LOTTE HOTEL, YANGON">
+                <button type="button" class="btn btn--idle icon__wrapper--md">
+                  <i class="fa-solid fa-pen-to-square icon icon--primary-color"></i>
                 </button>
-                <button type="button" class="btn icon__wrapper--md">
-                  <i class="fa-solid fa-xmark icon"></i>
+                <button type="button" class="btn btn--idle icon__wrapper--md">
+                  <i class="fa-solid fa-xmark icon icon--primary-color"></i>
                 </button>
               </div>
-              <span class="paragraph--sm">Today at 7:21pm</span>
+              <span class="paragraph--sm time">Today at 7:21pm</span>
             </div>
 
+
+
             <ul class="activity-list" data-id="1">
-              <li class="activity-list__item">
-                <i class="fa-solid fa-circle-check icon"></i>
-                <input type="text" class="activity-list__item__input" value="Pooping">
-                <button type="button" class="btn icon__wrapper--sm" data-list-index="0">
-                  <i class="fa-solid fa-pen"></i>
+              <li class="activity-list__item activity-list__item--y-center">
+                <i class="fa-solid fa-circle-check icon icon--primary-color"></i>
+                <input type="text"
+                  class="input-focus__outline--none paragraph activity-list__item__input input--bottom-border"
+                  value="Pooping">
+                <button type="button" class="btn btn--idle icon__wrapper--md" data-list-index="0">
+                  <i class="fa-solid fa-pen-to-square icon icon--primary-color"></i>
                 </button>
-                <button type="button" class="btn icon__wrapper--sm" data-list-index="0">
-                  <i class="fa-solid fa-xmark icon"></i>
+                <button type="button" class="btn btn--idle icon__wrapper--md" data-list-index="0">
+                  <i class="fa-solid fa-xmark icon icon--primary-color"></i>
+                </button>
+              </li>
+
+              <li class="activity-list__item activity-list__item--y-center">
+                <i class="fa-solid fa-circle-check icon icon--primary-color"></i>
+                <input type="text"
+                  class="input-focus__outline--none paragraph activity-list__item__input input--bottom-border"
+                  value="Pooping">
+                <button type="button" class="btn btn--idle icon__wrapper--md" data-list-index="0">
+                  <i class="fa-solid fa-pen-to-square icon icon--primary-color"></i>
+                </button>
+                <button type="button" class="btn btn--idle icon__wrapper--md" data-list-index="0">
+                  <i class="fa-solid fa-xmark icon icon--primary-color"></i>
+                </button>
+              </li>
+
+              <li class="activity-list__item activity-list__item--y-center">
+                <i class="fa-solid fa-circle-check icon icon--primary-color"></i>
+                <input type="text"
+                  class="input-focus__outline--none paragraph activity-list__item__input input--bottom-border"
+                  value="Pooping">
+                <button type="button" class="btn btn--idle icon__wrapper--md" data-list-index="0">
+                  <i class="fa-solid fa-pen-to-square icon icon--primary-color"></i>
+                </button>
+                <button type="button" class="btn btn--idle icon__wrapper--md" data-list-index="0">
+                  <i class="fa-solid fa-xmark icon icon--primary-color"></i>
                 </button>
               </li>
             </ul>
+
+            <form class="form form--content__cta form--content--edit__cta">
+              <div class="add-activity__container">
+                <input type="text" class="add-activity__input input-focus__outline--none"
+                  placeholder="Add new activity...">
+                <button type="submit" class="btn btn--white btn--idle">
+                  <i class="fa-solid fa-plus icon--add icon--secondary-color"></i>
+                </button>
+              </div>
+
+              <div class="form--main--cta__buttons">
+                <button type="button" class="btn btn--lg btn--lg-fw btn--shadow btn--red"
+                  data-modal="modal--discard--current">Discard</button>
+                <button type="submit" class="btn btn--lg btn--lg-fw btn--shadow btn--green"
+                  data-modal="modal--checkout">Save</button>
+              </div>
+            </form>
           </div>
         </div>
 
-        <div class="content content--3">
-          <div class="content--history">
-            <div class="history__tab__header" data-tab="1">
-              <a href="#" class="heading--secondary">Today</a>
-              <button type="button" class="btn icon__wrapper--md">
-                <i class="fa-solid fa-chevron-up icon"></i>
-              </button>
+        <div class="content content--3 active">
+          <div class="content--sub content--history active">
+
+            <div class="history__tab">
+              <div class="history__tab__header" data-tab="1">
+                <a href="#" class="heading--secondary">Today</a>
+                <button type="button" class="btn icon__wrapper--md">
+                  <i class="fa-solid fa-chevron-up icon icon--chevron icon--primary-color"></i>
+                </button>
+              </div>
+
+              <div class="history__tab__content history__tab__content--1">
+                <div class="history__tab__content__item">
+                  <div class="history__tab__content__item__header">
+                    <a href="#" class="heading--tertiary" data-id="1">Lotte Hotel</a>
+                    <button type="button" class="btn btn--idle icon__wrapper--md" data-id="1">
+                      <i class="fa-solid fa-pen-to-square icon icon--sm icon--primary-color"></i>
+                    </button>
+                    <button type="button" class="btn btn--idle icon__wrapper--md" data-id="1">
+                      <i class="fa-solid fa-location-arrow icon icon--sm icon--primary-color"></i>
+                    </button>
+                  </div>
+                  <p class="paragraph--sm time">
+                    7:21pm - 10:00pm
+                  </p>
+                </div>
+              </div>
+
             </div>
 
-            <div class="history__tab-content history__tab-content--1">
-              <div class="history__tab-content__item">
-                <div class="history__tab-content__item__header">
-                  <a href="#" class="heading--tertiary" data-id="1">Lotte Hotel</a>
-                  <button type="button" class="btn icon__wrapper--md" data-id="1">
-                    <i class="fa-solid fa-pen-to-square icon"></i>
-                  </button>
-                  <button type="button" class="btn icon__wrapper--md" data-id="1">
-                    <i class="fa-solid fa-location-arrow icon"></i>
-                  </button>
-                </div>
-                <p class="paragraph--sm">
-                  7:21pm - 10:00pm
-                </p>
+            <div class="history__tab">
+              <div class="history__tab__header" data-tab="1">
+                <a href="#" class="heading--secondary">Yesterday</a>
+                <button type="button" class="btn icon__wrapper--md">
+                  <i class="fa-solid fa-chevron-up icon icon--chevron icon--primary-color"></i>
+                </button>
               </div>
             </div>
+
+            <div class="history__tab">
+              <div class="history__tab__header" data-tab="1">
+                <a href="#" class="heading--secondary">2 Days Ago</a>
+                <button type="button" class="btn icon__wrapper--md">
+                  <i class="fa-solid fa-chevron-up icon icon--chevron icon--primary-color"></i>
+                </button>
+              </div>
+
+              <div class="history__tab__content history__tab__content--1">
+                <div class="history__tab__content__item">
+                  <div class="history__tab__content__item__header">
+                    <a href="#" class="heading--tertiary" data-id="1">Lotte Hotel</a>
+                    <button type="button" class="btn btn--idle icon__wrapper--md" data-id="1">
+                      <i class="fa-solid fa-pen-to-square icon icon--sm icon--primary-color"></i>
+                    </button>
+                    <button type="button" class="btn btn--idle icon__wrapper--md" data-id="1">
+                      <i class="fa-solid fa-location-arrow icon icon--sm icon--primary-color"></i>
+                    </button>
+                  </div>
+                  <p class="paragraph--sm time">
+                    7:21pm - 10:00pm
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
           </div>
 
-          <div class="content--history-individual">
+          <div class="content--sub content--history-individual">
             <div class="previous__container">
-              <button class="btn icon__wrapper--sm">
-                <i class="fa-solid fa-chevron-left icon"></i>
+              <button class="btn btn--idle  icon__wrapper--sm">
+                <i class="fa-solid fa-chevron-left icon icon--xsm icon--primary-color"></i>
               </button>
               <span class="paragraph paragraph--md">Back</span>
             </div>
 
-            <div class="activity-list__header__wrapper">
+            <div class="activity-list__header__wrapper activity-list__header__wrapper--history-individual">
               <div class="activity-list__header">
-                <i class="fa-solid fa-location-dot icon"></i>
+                <i class="fa-solid fa-location-dot icon icon--location icon--primary-color"></i>
                 <h2 class="heading--secondary">LOTTE HOTEL, YANGON</h2>
               </div>
-              <span class="paragraph--sm">Today at 7:21pm - 10:00pm</span>
+              <span class="paragraph--sm time">Today at 7:21pm - 10:00pm</span>
             </div>
 
             <ul class="activity-list">
-              <li class="activity-list__item">
-                <i class="fa-solid fa-circle-check icon"></i>
+              <li class="activity-list__item activity-list__item--y-center">
+                <i class="fa-solid fa-circle-check icon icon--primary-color"></i>
                 <span class="paragraph">
                   Pooping
                 </span>
               </li>
+
+              <li class="activity-list__item activity-list__item--y-center">
+                <i class="fa-solid fa-circle-check icon icon--primary-color"></i>
+                <span class="paragraph">
+                  Pooping
+                </span>
+              </li>
+
+              <li class="activity-list__item activity-list__item--y-center">
+                <i class="fa-solid fa-circle-check icon icon--primary-color"></i>
+                <span class="paragraph">
+                  Pooping
+                </span>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -169,48 +311,57 @@
 
     </div>
 
-    <!-- CTA Form For Current Location -->
-    <form class="form form--content--current__cta">
-      <div class="add-activity__container">
-        <input type="text" class="add-activity__input" placeholder="Add new activity...">
-        <button type="submit" class="btn btn--square btn--white">
-          <i class="fa-solid fa-plus icon--add"></i>
-        </button>
-      </div>
 
-      <button type="submit" class="btn btn--lg btn--red" data-modal="modal--discard--current">Discard</button>
-      <button class="btn btn--lg btn--green" data-modal="modal--checkout">Checkout</button>
-    </form>
 
-    <!-- CTA Form for Edit -->
-    <form class="form form--content--current__cta">
-      <div class="add-activity__container">
-        <input type="text" class="add-activity__input" placeholder="Add new activity...">
-        <button type="submit" class="btn btn--square btn--white" data-id="1">
-          <i class="fa-solid fa-plus icon--add"></i>
-        </button>
-      </div>
 
-      <button type="submit" class="btn btn--lg btn--red" data-modal="modal--discard--edit">Discard</button>
-      <button class="btn btn--lg btn--green" data-modal="modal--save">Save</button>
-    </form>
 
-    </div>
 
     <div class="map__container">
-      <div class="map"></div>
+      <div id="map" class="map">
+
+        <div class="map__zoom-controls">
+          <button class="btn btn--white icon__wrapper--lg btn--idle">
+            <i class="fa-solid fa-plus icon icon--lg icon--secondary-color"></i>
+          </button>
+          <button class="btn btn--white icon__wrapper--lg btn--idle">
+            <i class="fa-solid fa-minus icon icon--lg icon--secondary-color"></i>
+          </button>
+        </div>
+
+        <button class="btn btn--white btn--current-location btn--idle icon__wrapper--lg icon__wrapper--round-edge">
+          <i class="fa-solid fa-location-crosshairs icon icon--lg icon--secondary-color"></i>
+        </button>
+      </div>
     </div>
 
   </main>
 
-  <div class="modal">
-    <i class="fa-regular fa-circle-exclamation icon"></i>
-    <h2 class="heading--secondary">Discard Changes</h2>
-    <p class="paragraph">Are you sure that you wish to discard any changes that you have made? This action cannot be
+  <div class="modal modal--discard--current-location">
+    <i class="fa-solid fa-circle-exclamation icon icon--xlg icon--red"></i>
+    <h2 class="heading--secondary heading--secondary--black">Discard Changes?</h2>
+    <p class="paragraph paragraph--black">Are you sure that you wish to discard any changes that you have made? This
+      action cannot be
       undone.</p>
     <div class="modal__cta">
-      <button type="submit" class="btn btn--sm">Cancel</button>
-      <button type="submit" class="btn btn--sm btn--sm--main">Discard</button>
+      <button type="submit"
+        class="btn btn--sm btn--sm-fw btn--idle btn--black-lighter btn--border-light btn--hover-red">Cancel</button>
+      <button type="submit"
+        class="btn btn--sm btn--sm-fw btn--idle btn--black-lighter btn--border-light btn--hover-red btn--sm--main">Discard</button>
+    </div>
+  </div>
+
+  <div class="modal modal--add-activity active">
+    <div class="add-activity__container">
+      <input type="text"
+        class="add-activity__input add-activity__input--sm add-activity__input--full-width input-focus__outline--none"
+        placeholder="Add new activity...">
+    </div>
+
+    <div class="modal__cta">
+      <button type="submit"
+        class="btn btn--sm btn--sm-fw btn--idle btn--black-lighter btn--border-light btn--hover-red">Cancel</button>
+      <button type="submit"
+        class="btn btn--sm btn--sm-fw btn--idle btn--black-lighter btn--border-light btn--hover-red btn--sm--main">Add</button>
     </div>
   </div>
 </body>

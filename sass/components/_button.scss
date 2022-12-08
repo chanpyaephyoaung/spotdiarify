@@ -1,0 +1,112 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    display: inline-block;
+    border-radius: var(--border-radius-secondary);
+    background-color: transparent;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-1.5px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(-0.5px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--idle {
+    &:hover {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    &:active,
+    &:focus {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+  }
+
+  &--hover-red {
+    &:hover {
+      color: $color-white;
+      background-color: $color-red;
+    }
+  }
+
+  &--sm {
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+
+    &-fw {
+      width: 9rem;
+      max-width: 9rem;
+    }
+
+    &--main {
+      font-weight: 600;
+    }
+  }
+
+  &--lg {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1.5rem 3rem;
+
+    &-fw {
+      width: 13rem;
+      max-width: 13rem;
+    }
+  }
+
+  &--shadow {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--border-light {
+    border: 1px solid $color-black-lighter;
+  }
+
+  &--round {
+    border-radius: 50%;
+  }
+
+  &--white {
+    background-color: $color-white;
+  }
+
+  &--black {
+    background-color: $color-black;
+
+    &-lighter {
+      background-color: rgba($color-black-lighter, 0.4);
+    }
+  }
+
+  &--red {
+    background-color: $color-red;
+    color: $color-white;
+  }
+
+  &--green {
+    background-color: $color-green;
+    color: $color-white;
+  }
+
+  &--current-location {
+    position: absolute;
+    z-index: 500;
+    bottom: var(--map-control-elements-margin);
+    right: var(--map-control-elements-margin);
+  }
+}

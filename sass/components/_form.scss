@@ -1,0 +1,98 @@
+input[type="text"] {
+  font-family: "Poppins", sans-serif;
+  border: none;
+}
+
+input[type="text"]:focus {
+  &.input-focus__outline--none {
+    outline: none;
+  }
+
+  &.input--bottom-border {
+    box-shadow: 0 1px 0 $color-primary;
+    backface-visibility: hidden;
+  }
+}
+
+.form {
+  &--initializer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+
+    &__input {
+      width: 100%;
+      border: none;
+      border-radius: 100px;
+      color: $color-secondary;
+      font-weight: 600;
+      padding: 1rem 3rem;
+      text-align: center;
+
+      &::placeholder {
+        font-weight: 600;
+        color: $color-secondary;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &--main--cta__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--content__cta {
+    width: calc(100% - calc(var(--info-bar-x-axis-padding) * 2));
+    position: absolute;
+    bottom: calc(var(--info-bar-y-axis-padding) + 3rem);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+  }
+}
+
+// Add Activity Component
+
+.add-activity {
+  &__container {
+    --add-activity-input-width: 80%;
+    width: 100%;
+    display: flex;
+    border-radius: var(--border-radius-secondary);
+    overflow: hidden;
+
+    & button:first-of-type {
+      width: calc(100% - var(--add-activity-input-width));
+    }
+
+    &-shadow {
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    }
+  }
+
+  &__input {
+    width: var(--add-activity-input-width);
+    font-size: 1.5rem;
+    background-color: $color-secondary;
+    color: $color-white;
+    padding: 1.5rem 2rem;
+
+    &::placeholder {
+      color: $color-white;
+      opacity: 0.4;
+    }
+
+    &--full-width {
+      width: 100%;
+    }
+
+    &--sm {
+      font-size: 1.3rem;
+      padding: 1rem 1.5rem;
+    }
+  }
+}

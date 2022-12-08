@@ -1,3 +1,14 @@
+:root {
+  --border-radius-primary: 3rem;
+  --info-bar-width: 31%;
+  --info-bar-x-axis-padding: 5rem;
+  --info-bar-y-axis-padding: 3rem;
+  --nav-tab-number: 3;
+  --activity-text-column-width: 65%;
+  --border-radius-secondary: 1rem;
+  --map-control-elements-margin: 2rem;
+}
+
 *,
 *::before,
 *::after {
@@ -16,4 +27,45 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background-color: rgba($color-secondary, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+.main {
+  width: 130rem;
+  max-width: 130rem;
+  height: 87%;
+  border-radius: var(--border-radius-primary);
+  overflow: hidden;
+  background-color: $color-white;
+
+  display: flex;
+}
+
+.info {
+  width: var(--info-bar-width);
+  height: 100%;
+  padding: var(--info-bar-y-axis-padding) var(--info-bar-x-axis-padding);
+  position: relative;
+}
+
+.map__container {
+  width: calc(100% - var(--info-bar-width));
+  background-color: $color-black-lightest;
+  padding: var(--info-bar-y-axis-padding);
 }
