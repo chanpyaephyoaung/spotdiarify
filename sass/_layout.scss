@@ -123,8 +123,14 @@
   top: 0;
   left: 0;
   z-index: 1001;
-  background-color: rgba($color-black, 0.7);
+  background-color: rgba($color-black-pure, 0.75);
   --webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   cursor: pointer;
+
+  display: none;
+
+  &.active {
+    display: block;
+  }
 }

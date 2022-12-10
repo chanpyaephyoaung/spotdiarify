@@ -32,7 +32,7 @@
 </head>
 
 <body>
-  <!-- <div class="overlay"></div> -->
+  <div class="overlay"></div>
 
   <main class="main">
     <div class="info">
@@ -204,7 +204,7 @@
             <div class="history__tab">
               <div class="history__tab__header" data-tab="1">
                 <a href="#" class="heading--secondary">Today</a>
-                <button type="button" class="btn icon__wrapper--md">
+                <button type="button" class="btn icon__wrapper--md btn--idle">
                   <i class="fa-solid fa-chevron-up icon icon--chevron icon--primary-color"></i>
                 </button>
               </div>
@@ -231,7 +231,7 @@
             <div class="history__tab">
               <div class="history__tab__header" data-tab="1">
                 <a href="#" class="heading--secondary">Yesterday</a>
-                <button type="button" class="btn icon__wrapper--md">
+                <button type="button" class="btn icon__wrapper--md btn--idle">
                   <i class="fa-solid fa-chevron-up icon icon--chevron icon--primary-color"></i>
                 </button>
               </div>
@@ -240,7 +240,7 @@
             <div class="history__tab">
               <div class="history__tab__header" data-tab="1">
                 <a href="#" class="heading--secondary">2 Days Ago</a>
-                <button type="button" class="btn icon__wrapper--md">
+                <button type="button" class="btn icon__wrapper--md btn--idle">
                   <i class="fa-solid fa-chevron-up icon icon--chevron icon--primary-color"></i>
                 </button>
               </div>
@@ -312,10 +312,7 @@
     </div>
 
 
-
-
-
-
+    <!-- Map -->
     <div class="map__container">
       <div id="map" class="map">
 
@@ -336,7 +333,9 @@
 
   </main>
 
-  <div class="modal modal--discard--current-location">
+
+  <!-- Modals -->
+  <div class="modal modal--discard--current-location active">
     <i class="fa-solid fa-circle-exclamation icon icon--xlg icon--red"></i>
     <h2 class="heading--secondary heading--secondary--black">Discard Changes?</h2>
     <p class="paragraph paragraph--black">Are you sure that you wish to discard any changes that you have made? This
@@ -350,7 +349,7 @@
     </div>
   </div>
 
-  <div class="modal modal--add-activity active">
+  <div class="modal modal--add-activity">
     <div class="add-activity__container">
       <input type="text"
         class="add-activity__input add-activity__input--sm add-activity__input--full-width input-focus__outline--none"

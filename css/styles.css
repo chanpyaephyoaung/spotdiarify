@@ -210,10 +210,14 @@ a, a:link, a:visited {
   top: 0;
   left: 0;
   z-index: 1001;
-  background-color: rgba(53, 53, 53, 0.7);
+  background-color: rgba(0, 0, 0, 0.75);
   --webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   cursor: pointer;
+  display: none;
+}
+.overlay.active {
+  display: block;
 }
 
 .btn, .btn:link, .btn:visited {
